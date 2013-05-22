@@ -12,5 +12,12 @@ import static com.google.common.collect.Lists.newArrayList;
 public class Numbers {
     public static void main(String[] args) {
         List<Integer> numbers = newArrayList(1, 9, 4, 16, 4);
+
+        List<Integer> differences = new DifferenceCalculator().findDifferences(numbers);
+        printList(differences);
+    }
+
+    private static void printList(List<Integer> numbers) {
+
     }
 }
