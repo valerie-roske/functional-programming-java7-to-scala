@@ -1,16 +1,17 @@
 package com.thoughtworks.numbers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Collections.addAll;
 
-// User stories
-// Print the differences between each pair of numbers that are neighbors. For instance, "-8, 5, -12, 12"
-// Print out unique numbers and their frequency (number of times they occur. "[1, 1], [9, 1], [4, 2], [16, 1]"
-// Print the square root of unique numbers in ascending order
+// Given a list of numbers like {1, 9, 4, 16, 4}
+// Print the square root of all of the numbers larger than 4.
+// For example, "3^2 = 9, 4^2 = 16"
+
+// Given a list of strings like {"Bill", "Archer", "Lana"}
+// Print the first letter of each of the string that have a length of 4.
+// For example, "BL"
 
 public class Numbers {
     public static void main(String[] args) {
@@ -18,29 +19,36 @@ public class Numbers {
         List<Integer> numbers = new ArrayList<Integer>();
         addAll(numbers, source);
 
-        reportDifferences(numbers);
-        reportFrequencies(numbers);
+        printList(asStrings(squareRoots(numbersGreaterThanFour(numbers))));
+
     }
 
-    private static void reportFrequencies(List<Integer> numbers) {
-        Map<Integer, Integer> numberToFrequencyMap = new FrequencyCalculator().findFrequencies(numbers);
-
-        List<String> frequenciesAsStrings = new ArrayList<String>();
-        for (Integer uniqueNumber : numberToFrequencyMap.keySet()){
-            frequenciesAsStrings.add("[" + uniqueNumber + ", " + numberToFrequencyMap.get(uniqueNumber) + "]");
+    private static List<String> asStrings(List<Double> doubles) {
+        List<String> strings = new ArrayList<String>();
+        for (Double aDouble : doubles){
+            strings.add(aDouble.toString());
         }
-
-        printList(frequenciesAsStrings);
+        return strings;
     }
 
-    private static void reportDifferences(List<Integer> numbers) {
-        List<Integer> differences = new DifferenceCalculator().findDifferences(numbers);
-        List<String> numbersAsStrings = new ArrayList<String>();
-        for (Integer number : differences){
-            numbersAsStrings.add(number.toString());
+    private static List<Double> squareRoots(List<Integer> numbers) {
+        List<Double> squareRoots = new ArrayList<Double>();
+        for (Integer number : numbers){
+            squareRoots.add(Math.sqrt(number.floatValue()));
         }
-        printList(numbersAsStrings);
+        return squareRoots;
     }
+
+    private static List<Integer> numbersGreaterThanFour(List<Integer> numbers) {
+        List<Integer> numbersGreaterThanFour = new ArrayList<Integer>();
+        for (Integer number : numbers){
+            if (number > 4){
+                numbersGreaterThanFour.add(number);
+            }
+        }
+        return numbersGreaterThanFour;
+    }
+
 
     private static void printList(List<String> items) {
         System.out.println(join(items, ", "));
