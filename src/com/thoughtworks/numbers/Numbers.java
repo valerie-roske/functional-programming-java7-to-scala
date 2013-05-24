@@ -1,23 +1,52 @@
 package com.thoughtworks.numbers;
 
+import com.google.common.base.Function;
+import com.google.common.base.Predicate;
+
+import java.util.Collection;
 import java.util.List;
 
+import static com.google.common.collect.Collections2.filter;
+import static com.google.common.collect.Collections2.transform;
 import static com.google.common.collect.Lists.newArrayList;
 
-// User stories
-// Print the differences between each pair of numbers that are neighbors. For instance, "1 - 9 = -8; 9 - 4 = 5; 4 - 16 = -12"
-// Print out unique numbers and their frequency (number of times they occur. "[1, 1], [9, 1], [4, 2], [16, 1]"
-// Print the square root of unique numbers in ascending order
+// Given a list of numbers like {1, 9, 4, 16, 4}
+// Print the square root of all of the numbers larger than 4.
+// For example, "3^2 = 9, 4^2 = 16"
+
+// Given a list of strings like {"Bill", "Archer", "Lana"}
+// Print the first letter of each of the string that have a length of 4.
+// For example, "BL"
+
 
 public class Numbers {
     public static void main(String[] args) {
         List<Integer> numbers = newArrayList(1, 9, 4, 16, 4);
 
-        List<Integer> differences = new DifferenceCalculator().findDifferences(numbers);
-        printList(differences);
+        Collection<Integer> numbersGreaterThanFour = filter(numbers, new IsGreaterThanFour());
+        Collection<Double> squareRoots = transform(numbersGreaterThanFour, new squareRoot());
+        Collection<String> squareRootsAsStrings = transform(squareRoots, new toString());
+
+        for (String result : squareRootsAsStrings){
+            System.out.println(result);
+        }
     }
 
-    private static void printList(List<Integer> numbers) {
+    private static class IsGreaterThanFour implements Predicate<Integer> {
+        public boolean apply(Integer integer) {
+            return integer > 4;
+        }
+    }
 
+    private static class squareRoot implements Function<Integer, Double> {
+        public Double apply(Integer integer) {
+            return Math.sqrt(integer.doubleValue());
+        }
+    }
+
+    private static class toString implements Function<Double, String> {
+        public String apply(Double aDouble) {
+            return aDouble.toString();
+        }
     }
 }
