@@ -1,10 +1,15 @@
 package com.thoughtworks.numbers.examples;
 
 import java.util.List;
-import static java.util.stream.Collectors.toList;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class FilterExample {
     public List<Integer> filterOutOddNumbers(List<Integer> numbers) {
-        return numbers.stream().filter(number -> number % 2 == 0).collect(toList());
+        Predicate<Integer> isEvenPredicate = number -> number % 2 == 0;
+        return numbers
+                .stream()
+                .filter(isEvenPredicate)
+                .collect(Collectors.<Integer>toList());
     }
 }
