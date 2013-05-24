@@ -1,7 +1,8 @@
 package com.thoughtworks.numbers.examples;
 
 import java.util.List;
-import static java.util.stream.Collectors.toList;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class TransformExample {
     private Integer numberToDivideBy;
@@ -11,6 +12,10 @@ public class TransformExample {
     }
 
     public List<Integer> divide(List<Integer> numbersToDivide) {
-        return numbersToDivide.stream().map(integer -> integer/numberToDivideBy).collect(toList());
+        Function<Integer,Integer> divideByNumberFunction = integer -> integer / numberToDivideBy;
+        return numbersToDivide
+                .stream()
+                .map(divideByNumberFunction)
+                .collect(Collectors.<Integer>toList());
     }
 }
