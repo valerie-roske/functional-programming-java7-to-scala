@@ -7,7 +7,7 @@ import static java.util.Collections.addAll;
 
 // Given a list of numbers like {1, 9, 4, 16, 4}
 // Print the square root of all of the numbers larger than 4.
-// For example, "3^2 = 9, 4^2 = 16"
+// For example, "3, 4"
 
 // Given a list of strings like {"Bill", "Archer", "Lana"}
 // Print the first letter of each of the string that have a length of 4.
@@ -20,7 +20,6 @@ public class Numbers {
         addAll(numbers, source);
 
         printList(asStrings(squareRoots(numbersGreaterThanFour(numbers))));
-
     }
 
     private static List<String> asStrings(List<Double> doubles) {
