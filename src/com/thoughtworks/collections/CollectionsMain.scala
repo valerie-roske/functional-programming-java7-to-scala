@@ -10,13 +10,12 @@ package com.thoughtworks.collections
 object CollectionsMain {
 
   def printSquareRootOfNumbersLargerThan4(numbers: Seq[Int]){
-    numbers.foreach(number => println(number))
+    numbers.foreach(println)
   }
 
   def printFirstLetterOfStringsLongerThan4(names: Set[String]){
-    names.foreach(name => println(name))
+    names.foreach(println)
   }
-
 
   def main(args: Array[String]) {
     val numbers = Seq(1, 9, 4, 16, 4)
@@ -26,5 +25,4 @@ object CollectionsMain {
 
     printFirstLetterOfStringsLongerThan4(names)
   }
-
 }
