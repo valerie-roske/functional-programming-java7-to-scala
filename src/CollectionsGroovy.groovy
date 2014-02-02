@@ -7,7 +7,7 @@
 // For example, "BL"
 
 List numbers = [1, 9, 4, 16, 4]
-numbers.each {println it}
+numbers.each {print it}
 
 
 Set names = ["Bill", "Archer", "Lana"]
