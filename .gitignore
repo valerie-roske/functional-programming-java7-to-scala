@@ -1,7 +1,7 @@
 *.class
 *.bin
 *.lock
-.idea/workspace.xml
+.idea
 /build
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
