@@ -1,4 +1,4 @@
-package com.thoughtworks.jcprogram.functional.java8.solution.examples;
+package com.thoughtworks.jcprogram.functional.java8.examples;
 
 import java.util.List;
 import java.util.function.Function;
@@ -12,10 +12,10 @@ public class TransformExample {
     }
 
     public List<Integer> divide(List<Integer> numbersToDivide) {
-        Function<Integer, Integer> divideByTwoFunction = integer -> integer / numberToDivideBy;
+        Function<Integer,Integer> divideByNumberFunction = integer -> integer / numberToDivideBy;
         return numbersToDivide
                 .stream()
-                .map(divideByTwoFunction)
+                .map(divideByNumberFunction)
                 .collect(Collectors.<Integer>toList());
     }
 }

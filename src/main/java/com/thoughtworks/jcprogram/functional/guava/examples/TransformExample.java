@@ -1,4 +1,4 @@
-package com.thoughtworks.jcprogram.functional.guava.solution.examples;
+package com.thoughtworks.jcprogram.functional.guava.examples;
 
 import com.google.common.base.Function;
 

@@ -1,6 +1,7 @@
 package com.thoughtworks.jcprogram.functional.guava.solution;
 
 import com.google.common.base.Function;
+import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
 
 import java.util.Collection;
@@ -14,22 +15,17 @@ import static com.google.common.collect.Lists.newArrayList;
 // Print the square root of all of the numbers larger than 4.
 // For example, "3, 4"
 
-// Given a list of strings like {"Bill", "Archer", "Lana"}
-// Print the first letter of each of the string that have a length of 4.
-// For example, "BL"
-
-
 public class Numbers {
     public static void main(String[] args) {
         List<Integer> numbers = newArrayList(1, 9, 4, 16, 4);
 
         Collection<Integer> numbersGreaterThanFour = filter(numbers, new IsGreaterThanFour());
         Collection<Double> squareRoots = transform(numbersGreaterThanFour, new squareRoot());
-        Collection<String> squareRootsAsStrings = transform(squareRoots, new toString());
+        Collection<Integer> squareRootsAsIntegers = transform(squareRoots, new ToInteger());
+        Collection<String> squareRootsAsStrings = transform(squareRootsAsIntegers, new toString());
 
-        for (String result : squareRootsAsStrings){
-            System.out.println(result);
-        }
+        String result = Joiner.on(", ").join(squareRootsAsStrings);
+        System.out.println(result);
     }
 
     private static class IsGreaterThanFour implements Predicate<Integer> {
@@ -44,9 +40,15 @@ public class Numbers {
         }
     }
 
-    private static class toString implements Function<Double, String> {
-        public String apply(Double aDouble) {
-            return aDouble.toString();
+    private static class ToInteger implements Function<Double, Integer> {
+        public Integer apply(Double number) {
+            return number.intValue();
+        }
+    }
+
+    private static class toString implements Function<Integer, String> {
+        public String apply(Integer number) {
+            return number.toString();
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.thoughtworks.jcprogram.functional.java8.exercise.examples;
+package com.thoughtworks.jcprogram.functional.java8.examples;
 
 import java.util.List;
 import java.util.function.Predicate;

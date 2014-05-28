@@ -1,4 +1,4 @@
-package com.thoughtworks.jcprogram.functional.guava.exercise.examples;
+package com.thoughtworks.jcprogram.functional.guava.examples;
 
 import org.junit.Test;
 
