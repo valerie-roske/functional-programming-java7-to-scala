@@ -1,3 +1,5 @@
+package com.thoughtworks.jcprogram.functional.groovy
+
 import org.junit.Test
 
 class ExamplesTest {
