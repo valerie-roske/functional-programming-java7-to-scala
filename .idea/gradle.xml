@@ -8,6 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/groovy" />
+            <option value="$PROJECT_DIR$/guava" />
+            <option value="$PROJECT_DIR$/java7" />
+            <option value="$PROJECT_DIR$/java8" />
+            <option value="$PROJECT_DIR$/scala" />
           </set>
         </option>
       </GradleProjectSettings>

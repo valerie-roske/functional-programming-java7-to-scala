@@ -1,12 +1,8 @@
 package com.thoughtworks.jcprogram.functional.java8.solution;
 
-import com.google.common.base.Strings;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.lang.Math.sqrt;
-import static java.lang.String.join;
 import static java.util.Arrays.asList;
 
 // Given a list of strings like {"Bill", "Archer", "Lana"}
