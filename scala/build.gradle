@@ -8,6 +8,8 @@ repositories {
 
 dependencies {
     compile 'org.scala-lang:scala-library:2.9.1'
-    testCompile 'org.scalatest:scalatest_2.8.1:1.8'
+    compile 'commons-collections:commons-collections:3.2'
+
+    testCompile 'org.scalatest:scalatest_2.11:2.1.7'
     testCompile 'junit:junit:4.11'
 }

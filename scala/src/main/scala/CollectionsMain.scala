@@ -19,6 +19,12 @@ object CollectionsMain {
   }
 
   def main(args: Array[String]) {
+        val divisor = 5
+        val seq: Seq[Int] = Seq(5)
+        seq.map(n => n / 5)// should be (Seq(1))
+
+
+
     val numbers = Seq(1, 9, 4, 16, 4)
     printSquareRootOfNumbersLargerThan4(numbers)
 
