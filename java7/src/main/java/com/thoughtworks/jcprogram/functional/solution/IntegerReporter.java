@@ -9,10 +9,16 @@ import static java.util.Arrays.asList;
 // Print the square root of all of the numbers larger than 4.
 // For example, "3, 4"
 
-public class Numbers {
+public class IntegerReporter {
     public static void main(String[] args) {
         List<Integer> numbers = asList(1, 9, 4, 16, 4);
-        printList(asStrings(squareRoots(numbersGreaterThanFour(numbers))));
+
+        System.out.println(new IntegerReporter().reportSquareRootsOfLargeNumbers(numbers));
+
+    }
+
+    public String reportSquareRootsOfLargeNumbers(List<Integer> numbers) {
+        return join(asStrings(squareRoots(numbersGreaterThanFour(numbers))), ", ");
     }
 
     private static List<String> asStrings(List<Integer> numbers) {
@@ -42,17 +48,16 @@ public class Numbers {
         return numbersGreaterThanFour;
     }
 
-
-    private static void printList(List<String> items) {
-        System.out.println(join(items, ", "));
-    }
-
     private static String join(List<String> items, String delimiter) {
-        String result = items.get(0);
-        List<String> itemsRemainingToAdd = items.subList(1, items.size());
-        for (String item : itemsRemainingToAdd){
-            result += delimiter + item;
+        String result = "";
+        if (!items.isEmpty()){
+            result = items.get(0);
+            List<String> itemsRemainingToAdd = items.subList(1, items.size());
+            for (String item : itemsRemainingToAdd){
+                result += delimiter + item;
+            }
         }
         return result;
     }
+
 }
