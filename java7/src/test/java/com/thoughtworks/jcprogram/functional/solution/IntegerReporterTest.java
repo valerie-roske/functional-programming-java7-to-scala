@@ -38,10 +38,11 @@ public class IntegerReporterTest {
 
     @Test
     public void shouldReportWhenThereIsMoreThanOneNumber() {
-        numbers.add(3);
+        numbers.add(9);
+        numbers.add(16);
         String result = integerReporter.reportSquareRootsOfLargeNumbers(numbers);
 
-        assertThat(result, is(""));
+        assertThat(result, is("3, 4"));
     }
 
 }
