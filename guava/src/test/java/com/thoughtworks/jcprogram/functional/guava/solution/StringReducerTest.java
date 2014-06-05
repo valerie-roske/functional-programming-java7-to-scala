@@ -1,14 +1,14 @@
-package com.thoughtworks.jcprogram.functional.solution;
+package com.thoughtworks.jcprogram.functional.guava.solution;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class StringReducerTest {
 
@@ -18,7 +18,7 @@ public class StringReducerTest {
     @Before
     public void setUp() throws Exception {
         reducer = new StringReducer();
-        strings = new ArrayList<String>();
+        strings = newArrayList();
     }
 
     @Test

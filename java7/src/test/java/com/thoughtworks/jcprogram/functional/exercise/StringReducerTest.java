@@ -5,13 +5,14 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class StringReducerTest {
 
-    private ArrayList<String> strings;
+    private List<String> strings;
     private StringReducer reducer;
 
     @Before

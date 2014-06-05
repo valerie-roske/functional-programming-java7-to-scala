@@ -10,22 +10,29 @@ import java.util.List;
 import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Collections2.transform;
 import static com.google.common.collect.Lists.newArrayList;
+import static java.util.Arrays.asList;
 
 // Given a list of numbers like {1, 9, 4, 16, 4}
 // Print the square root of all of the numbers larger than 4.
 // For example, "3, 4"
 
-public class Numbers {
+public class IntegerReporter {
     public static void main(String[] args) {
         List<Integer> numbers = newArrayList(1, 9, 4, 16, 4);
 
+        System.out.println(new IntegerReporter().reportSquareRootsOfLargeNumbers(numbers));
+
+    }
+
+    public String reportSquareRootsOfLargeNumbers(List<Integer> numbers) {
         Collection<Integer> numbersGreaterThanFour = filter(numbers, new IsGreaterThanFour());
-        Collection<Double> squareRoots = transform(numbersGreaterThanFour, new squareRoot());
+        Collection<Double> squareRoots = transform(numbersGreaterThanFour, new SquareRoot());
         Collection<Integer> squareRootsAsIntegers = transform(squareRoots, new ToInteger());
-        Collection<String> squareRootsAsStrings = transform(squareRootsAsIntegers, new toString());
+        Collection<String> squareRootsAsStrings = transform(squareRootsAsIntegers, new ToString());
 
         String result = Joiner.on(", ").join(squareRootsAsStrings);
-        System.out.println(result);
+
+        return result;
     }
 
     private static class IsGreaterThanFour implements Predicate<Integer> {
@@ -34,7 +41,7 @@ public class Numbers {
         }
     }
 
-    private static class squareRoot implements Function<Integer, Double> {
+    private static class SquareRoot implements Function<Integer, Double> {
         public Double apply(Integer integer) {
             return Math.sqrt(integer.doubleValue());
         }
@@ -46,7 +53,7 @@ public class Numbers {
         }
     }
 
-    private static class toString implements Function<Integer, String> {
+    private static class ToString implements Function<Integer, String> {
         public String apply(Integer number) {
             return number.toString();
         }
