@@ -9,16 +9,20 @@ import static java.util.Arrays.asList;
 // Print the first letter of each of the string that have a length of 4.
 // For example, "BL"
 
-public class Names {
-    public static void main(String[] args) {
-        List<String> names = asList("Bill", "Archer", "Lana");
+public class StringReducer {
 
-        String firstLetters = names.stream()
+    public static void main(String[] args) {
+        List<String> strings = asList("Bill", "Archer", "Lana");
+        System.out.println(new StringReducer().reduceToFirstLetterOfLengthFourStrings(strings));
+    }
+
+    public String reduceToFirstLetterOfLengthFourStrings(List<String> strings) {
+        String firstLetters = strings.stream()
                 .filter(name -> name.length() == 4)
                 .map(name -> name.charAt(0))
                 .map(character -> character.toString())
                 .collect(Collectors.<String>joining());
 
-        System.out.println(firstLetters);
+        return firstLetters;
     }
 }
