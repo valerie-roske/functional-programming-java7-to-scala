@@ -1,4 +1,4 @@
-package com.thoughtworks.jcprogram.functional.java8.exercise;
+package com.thoughtworks.jcprogram.functional.exercise;
 
 import java.util.List;
 

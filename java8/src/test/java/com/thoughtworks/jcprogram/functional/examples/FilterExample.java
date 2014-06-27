@@ -1,4 +1,4 @@
-package com.thoughtworks.jcprogram.functional.java8.examples;
+package com.thoughtworks.jcprogram.functional.examples;
 
 
 import org.junit.Test;

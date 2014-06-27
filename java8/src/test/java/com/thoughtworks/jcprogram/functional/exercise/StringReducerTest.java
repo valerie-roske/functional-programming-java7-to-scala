@@ -1,4 +1,4 @@
-package com.thoughtworks.jcprogram.functional.java8.exercise;
+package com.thoughtworks.jcprogram.functional.exercise;
 
 import org.junit.Before;
 import org.junit.Ignore;
