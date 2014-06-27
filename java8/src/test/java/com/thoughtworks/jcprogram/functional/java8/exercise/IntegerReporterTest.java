@@ -17,7 +17,7 @@ public class IntegerReporterTest {
 
     @Before
     public void setUp() throws Exception {
-        numbers = new ArrayList<>();
+        numbers = new ArrayList<Integer>();
         integerReporter = new IntegerReporter();
     }
 
