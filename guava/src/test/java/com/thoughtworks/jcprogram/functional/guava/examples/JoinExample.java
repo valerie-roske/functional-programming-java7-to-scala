@@ -10,7 +10,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class JoinExampleTest {
+public class JoinExample {
     @Test
     public void shouldInsertDelimiterBetweenStrings() {
         List<String> someStrings = newArrayList("Able", "Baker", "Charlie");

@@ -13,7 +13,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class FilterExampleTest {
+public class FilterExample {
     private static class IsEvenPredicate implements Predicate<Integer> {
         public boolean apply(Integer integer) {
             return integer % 2 == 0;

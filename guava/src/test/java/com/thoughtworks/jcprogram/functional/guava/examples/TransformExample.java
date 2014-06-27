@@ -10,7 +10,7 @@ import static com.google.common.collect.Lists.transform;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class TransformExampleTest {
+public class TransformExample {
     private static class DivideFunction implements Function<Integer, Integer> {
         private int numberToDivideBy;
 
