@@ -24,7 +24,7 @@ public class TransformExampleTest {
     }
 
     @Test
-    public void shouldDivideMoreThanOneNumber(){
+    public void shouldDivideAllNumbers(){
         List<Integer> result = transform(newArrayList(3, 6, 9), new DivideFunction(3));
         assertThat(result, is(newArrayList(1, 2, 3)));
     }

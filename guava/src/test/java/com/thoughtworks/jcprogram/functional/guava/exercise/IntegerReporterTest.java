@@ -7,8 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 public class IntegerReporterTest {
@@ -18,35 +17,39 @@ public class IntegerReporterTest {
 
     @Before
     public void setUp() throws Exception {
-        numbers = newArrayList();
+        numbers = new ArrayList<Integer>();
         integerReporter = new IntegerReporter();
     }
 
     @Ignore
     @Test
-    public void shouldReportSquareRootWhenThereIsOneNumberAndItIsGreaterThan4() {
+    public void shouldTakeSquareRootOfAllNumbers() {
         numbers.add(9);
+        numbers.add(16);
+
         String result = integerReporter.reportSquareRootsOfLargeNumbers(numbers);
 
-        assertThat(result, is("3"));
+        assertThat(result, both(containsString("3")).and(containsString("4")));
     }
 
     @Ignore
     @Test
-    public void shouldReportNothingWhenThereIsOneNumberAndItIsLessThan4() {
-        numbers.add(3);
+    public void shouldSeparateNumbersWithCommaAndSpace() {
+        numbers.add(9);
+        numbers.add(9);
+
+        String result = integerReporter.reportSquareRootsOfLargeNumbers(numbers);
+
+        assertThat(result, is("3, 3"));
+    }
+
+    @Ignore
+    @Test
+    public void shouldReportNothingWhenNumberIs4() {
+        numbers.add(4);
+
         String result = integerReporter.reportSquareRootsOfLargeNumbers(numbers);
 
         assertThat(result, is(""));
-    }
-
-    @Ignore
-    @Test
-    public void shouldReportWhenThereIsMoreThanOneNumber() {
-        numbers.add(9);
-        numbers.add(16);
-        String result = integerReporter.reportSquareRootsOfLargeNumbers(numbers);
-
-        assertThat(result, is("3, 4"));
     }
 }

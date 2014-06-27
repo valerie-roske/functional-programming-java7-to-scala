@@ -2,8 +2,10 @@ package com.thoughtworks.jcprogram.functional.guava.examples;
 
 
 import com.google.common.base.Predicate;
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import static com.google.common.collect.Collections2.filter;
@@ -19,8 +21,12 @@ public class FilterExampleTest {
     }
 
     @Test
-    public void shouldFilterListWithMoreThanOneElement(){
-        Collection<Integer> onlyEvens = filter(newArrayList(1, 2, 3, 4), new IsEvenPredicate());
-        assertThat(onlyEvens, is(newArrayList(2, 4)));
+    public void shouldRemoveOddElements(){
+        Collection<Integer> onlyEvens = newArrayList(2, 4);
+
+        Collection<Integer> filteredCollection = filter(newArrayList(1, 2, 3, 4), new IsEvenPredicate());
+        Collection<Integer> result = newArrayList(filteredCollection);
+
+        assertThat(result, is(onlyEvens));
     }
 }

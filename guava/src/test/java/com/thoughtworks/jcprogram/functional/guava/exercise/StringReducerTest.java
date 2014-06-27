@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -19,16 +18,17 @@ public class StringReducerTest {
     @Before
     public void setUp() throws Exception {
         reducer = new StringReducer();
-        strings = newArrayList();
+        strings = new ArrayList<>();
     }
 
     @Ignore
     @Test
-    public void shouldReduceToFirstLetterWhenStringIsLength4() {
+    public void shouldReduceAllStrings() {
         strings.add("1234");
+        strings.add("2345");
         String result = reducer.reduceToFirstLetterOfLengthFourStrings(strings);
 
-        assertThat(result, is("1"));
+        assertThat(result, is("12"));
     }
 
     @Ignore
@@ -38,15 +38,5 @@ public class StringReducerTest {
         String result = reducer.reduceToFirstLetterOfLengthFourStrings(strings);
 
         assertThat(result, is(""));
-    }
-
-    @Ignore
-    @Test
-    public void shouldReduceMoreThanOneString() {
-        strings.add("1234");
-        strings.add("2345");
-        String result = reducer.reduceToFirstLetterOfLengthFourStrings(strings);
-
-        assertThat(result, is("12"));
     }
 }
