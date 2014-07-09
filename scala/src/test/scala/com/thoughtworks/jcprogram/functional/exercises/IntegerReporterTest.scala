@@ -1,5 +1,6 @@
 package com.thoughtworks.jcprogram.functional.examples
 
+import com.thoughtworks.jcprogram.functional.exercises.IntegerReporter
 import org.junit.Test
 import org.scalatest.junit.AssertionsForJUnit
 
@@ -7,7 +8,11 @@ class IntegerReporterTest extends AssertionsForJUnit {
 
   @Test
   def shouldSomething() {
-    assert(true)
+    example = Set(3, 4)
+
+    result = IntegerReporter()
+
+    assert( result == example)
   }
 
 }

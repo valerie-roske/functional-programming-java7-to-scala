@@ -1,7 +1,6 @@
 package com.thoughtworks.jcprogram.functional.exercise;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -21,7 +20,6 @@ public class StringReducerTest {
         strings = new ArrayList<>();
     }
 
-    @Ignore
     @Test
     public void shouldReduceAllStrings() {
         strings.add("1234");
@@ -31,7 +29,6 @@ public class StringReducerTest {
         assertThat(result, is("12"));
     }
 
-    @Ignore
     @Test
     public void shouldReduceToNothingWhenStringIsNotLength4() {
         strings.add("12345");

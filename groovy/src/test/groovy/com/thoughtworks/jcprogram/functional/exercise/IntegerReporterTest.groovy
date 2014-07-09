@@ -1,12 +1,10 @@
 package com.thoughtworks.jcprogram.functional.exercise
-
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 
 import static org.hamcrest.CoreMatchers.both
 import static org.hamcrest.CoreMatchers.containsString
-import static org.hamcrest.CoreMatchers.is
+import static org.junit.Assert.assertEquals
 import static org.junit.Assert.assertThat
 
 class IntegerReporterTest {
@@ -17,23 +15,20 @@ class IntegerReporterTest {
         reporter = new IntegerReporter()
     }
 
-    @Ignore
     @Test
     def void shouldTakeSquareRootOfNumbers() {
         def result = reporter.reportSquareRootsOfLargeNumbers([9, 16])
         assertThat result, both(containsString("3")).and(containsString("4"))
     }
 
-    @Ignore
     @Test
     def void shouldReportNothingWhenThereIsOneNumberAndItIsLessThan4() {
-        assertThat reporter.reportSquareRootsOfLargeNumbers([3]), is("")
+        assertEquals reporter.reportSquareRootsOfLargeNumbers([3]), ""
     }
 
-    @Ignore
     @Test
     def void shouldInsertCommaAndSpaceBetweenNumbers() {
-        assertThat reporter.reportSquareRootsOfLargeNumbers([9, 9]), is("3, 3")
+        assertEquals reporter.reportSquareRootsOfLargeNumbers([9, 9]), "3, 3"
     }
 
 }

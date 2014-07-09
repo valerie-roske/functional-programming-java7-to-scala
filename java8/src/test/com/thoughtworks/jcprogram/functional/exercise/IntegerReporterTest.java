@@ -1,7 +1,6 @@
 package com.thoughtworks.jcprogram.functional.exercise;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -21,7 +20,6 @@ public class IntegerReporterTest {
         integerReporter = new IntegerReporter();
     }
 
-    @Ignore
     @Test
     public void shouldTakeSquareRootOfAllNumbers() {
         numbers.add(9);
@@ -32,7 +30,6 @@ public class IntegerReporterTest {
         assertThat(result, both(containsString("3")).and(containsString("4")));
     }
 
-    @Ignore
     @Test
     public void shouldSeparateNumbersWithCommaAndSpace() {
         numbers.add(9);
@@ -43,7 +40,6 @@ public class IntegerReporterTest {
         assertThat(result, is("3, 3"));
     }
 
-    @Ignore
     @Test
     public void shouldReportNothingWhenNumberIs4() {
         numbers.add(4);
